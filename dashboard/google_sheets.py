@@ -2,7 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from pathlib import Path
 
-# Define the base directory of your Django project (where manage.py is)
+# Define the base directory of the project (where manage.py is)
 BASE_DIR = Path(__file__).resolve().parent.parent  # Adjust as needed
 
 # Construct full path to creds.json

@@ -3,6 +3,7 @@ cachetools==5.5.2
 certifi==2025.4.26
 charset-normalizer==3.4.2
 Django==4.2.21
+django-widget-tweaks==1.5.0
 google-auth==2.40.1
 google-auth-oauthlib==1.2.2
 gspread==6.2.1
