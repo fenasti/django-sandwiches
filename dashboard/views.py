@@ -11,11 +11,18 @@ def home(request):
     if request.method == 'POST':
         form = SalesDataForm(request.POST)
         if form.is_valid():
-            raw_data = form.cleaned_data['sales_data']
-            data_list = raw_data.split(',')
+            # ✅ Build list from individual fields
+            sales_data = [
+                form.cleaned_data['cheese_ham'],
+                form.cleaned_data['tom_moz'],
+                form.cleaned_data['chicken_salad'],
+                form.cleaned_data['egg_salad'],
+                form.cleaned_data['hummus_veg'],
+                form.cleaned_data['ham_egg']
+            ]
 
-            if google_sheets.validate_data(data_list):
-                sales_data = [int(num) for num in data_list]
+            # ✅ Validate it’s a list of 6 integers
+            if google_sheets.validate_data(sales_data):
                 google_sheets.update_worksheet(sales_data, "sales")
 
                 surplus_data = google_sheets.calculate_surplus_data(sales_data)
@@ -33,7 +40,9 @@ def home(request):
                     "stock_data": zip(headers, stock_data),
                 }
             else:
-                messages.error(request, "Invalid data. Please enter 6 comma-separated numbers.")
+                messages.error(request, "Invalid data. Ensure all entries are whole numbers.")
+        else:
+            messages.error(request, "Please correct the errors in the form.")
     else:
         form = SalesDataForm()
 

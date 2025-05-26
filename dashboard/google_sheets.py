@@ -22,16 +22,11 @@ SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
 def validate_data(values):
     """
-    Converts all string values into integers.
-    Returns True if exactly 6 integers are provided, otherwise False.
+    Ensure we receive a list of exactly 6 integers.
     """
-    try:
-        [int(value) for value in values]
-        if len(values) != 6:
-            return False
-    except ValueError:
+    if len(values) != 6:
         return False
-    return True
+    return all(isinstance(v, int) for v in values)
 
 
 def update_worksheet(data, worksheet):

@@ -14,7 +14,8 @@
             <h1 class="display-5 fw-bold">🥪 Love Sandwiches Dashboard</h1>
             <p class="lead">Submit your daily sales data below</p>
             <a href="https://docs.google.com/spreadsheets/d/1iwDuWkuQb0YCYTGHc7VZU1Z0vTHX6KbeE4OWIA7_WHk/edit?usp=sharing">Excel Sheet</a>
-            <br>
+        </div>
+
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -26,13 +27,35 @@
 
         <div class="card shadow-sm">
             <div class="card-body">
-                <form method="post">
+                <form method="post" class="row g-3">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        {{ form.sales_data.label_tag }}
-                        {{ form.sales_data|add_class:"form-control" }}
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.cheese_ham.label }}</label>
+                        {{ form.cheese_ham|add_class:"form-control form-control-sm" }}
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Data</button>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.tom_moz.label }}</label>
+                        {{ form.tom_moz|add_class:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.chicken_salad.label }}</label>
+                        {{ form.chicken_salad|add_class:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.egg_salad.label }}</label>
+                        {{ form.egg_salad|add_class:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.hummus_veg.label }}</label>
+                        {{ form.hummus_veg|add_class:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ form.ham_egg.label }}</label>
+                        {{ form.ham_egg|add_class:"form-control form-control-sm" }}
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-primary btn-sm">Submit Data</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -50,7 +73,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-
                 <div class="col-md-4">
                     <h3>Surplus</h3>
                     <ul class="list-group">
@@ -62,7 +84,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-
                 <div class="col-md-4">
                     <h3>New Stock</h3>
                     <ul class="list-group">
@@ -76,7 +97,6 @@
                 </div>
             </div>
         {% endif %}
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
