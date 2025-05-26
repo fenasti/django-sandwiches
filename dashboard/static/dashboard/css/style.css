@@ -1,0 +1,50 @@
+/* Dark Mode Theme */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #f1f1f1;
+}
+
+body.dark-mode a {
+    color: #90caf9;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .card,
+body.dark-mode .list-group-item {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .form-control {
+    background-color: #2c2c2c;
+    color: #f1f1f1;
+    border-color: #444;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004ba0;
+}
+
+body.dark-mode .alert {
+    background-color: #333;
+    border-color: #444;
+    color: #f1f1f1;
+}
+
+body.dark-mode .form-check-input {
+    background-color: #444;
+    border-color: #666;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p {
+    color: #f5f5f5; /* white-ish for dark mode */
+}
