@@ -1,3 +1,5 @@
+import os
+import json
 import gspread
 from google.oauth2.service_account import Credentials
 from pathlib import Path
@@ -5,17 +7,21 @@ from pathlib import Path
 # Define the base directory of the project (where manage.py is)
 BASE_DIR = Path(__file__).resolve().parent.parent 
 
-# Construct full path to creds.json
-CREDS_PATH = BASE_DIR / 'creds.json'
-
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
 
-# Load credentials using full path
-CREDS = Credentials.from_service_account_file(CREDS_PATH)
+# Check if running in production or local development
+if os.environ.get('GOOGLE_CREDS_JSON'):
+    creds_info = json.loads(os.environ['GOOGLE_CREDS_JSON'])
+    CREDS = Credentials.from_service_account_info(creds_info)
+else:
+    # Local development load from creds.json
+    CREDS_PATH = BASE_DIR / 'creds.json'
+    CREDS = Credentials.from_service_account_file(CREDS_PATH)
+
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
