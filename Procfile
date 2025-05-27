@@ -1,1 +1,1 @@
-web: gunicorn django-sandwiches.wsgi:application --log-file -
+web: gunicorn love_sandwiches.wsgi:application --log-file -
