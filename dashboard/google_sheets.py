@@ -3,7 +3,7 @@ from google.oauth2.service_account import Credentials
 from pathlib import Path
 
 # Define the base directory of the project (where manage.py is)
-BASE_DIR = Path(__file__).resolve().parent.parent  # Adjust as needed
+BASE_DIR = Path(__file__).resolve().parent.parent 
 
 # Construct full path to creds.json
 CREDS_PATH = BASE_DIR / 'creds.json'
