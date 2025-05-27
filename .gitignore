@@ -6,3 +6,4 @@ __pycache__/
 *.sqlite3
 creds.json
 .env
+NOTES.md
