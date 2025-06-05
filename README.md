@@ -1,5 +1,9 @@
 
-This project began as Code Institute’s “Love Sandwiches” terminal exercise but has been fully rewritten as a Django 4.2 web application with six separate number inputs (one for each sandwich) instead of a single comma-separated field, making it more user-friendly for restaurants to log daily sales. It pushes data to Google Sheets via `gspread` (using service-account credentials loaded either from a `creds.json` file or the `GOOGLE_CREDS_JSON` environment variable), computes surplus and next-day stock using a five-day rolling average +10 %, and displays results in a responsive TailwindCSS/Alpine.js interface with a persistent dark-mode toggle. The app is deployed on Heroku under Gunicorn with static files served by WhiteNoise, and environment variables are managed via a `.env` file with Python-Decouple.
+The app is live at:
+[**[https://django-sandwiches-608c09739bab.herokuapp.com/](https://django-sandwiches-608c09739bab.herokuapp.com/)** 
+
+
+This project began as Code Institute’s “Love Sandwiches” terminal exercise but has been fully rewritten as a Django 4.2 web application with six separate number inputs (one for each sandwich) instead of a single comma-separated field, making it more user-friendly for restaurants to log daily sales. It pushes data to Google Sheets via `gspread` (using service-account credentials loaded either from a `creds.json` file or the `GOOGLE_CREDS_JSON` environment variable), computes surplus and next-day stock using a five-day rolling average +10 %, and displays results in a responsive Bootstrap interface with a persistent dark-mode toggle. The app is deployed on Heroku under Gunicorn with static files served by WhiteNoise, and environment variables are managed via a `.env` file with Python-Decouple.
 
 ---
 
@@ -61,7 +65,7 @@ git clone https://github.com/fenasti/django-sandwiches.git
 cd django-sandwiches
 
 # 2. Create & activate a virtual environment
-python3 -m venv venv     :contentReference[oaicite:27]{index=27}
+python3 -m venv venv 
 source venv/bin/activate # (or `.\venv\Scripts\activate` on Windows) :
 
 # 3. Install dependencies
@@ -91,8 +95,7 @@ python manage.py runserver
 ## ☁️ Deployment on Heroku (Already Live)
 
 The app is live at:
-[**[https://django-sandwiches-608c09739bab.herokuapp.com/](https://django-sandwiches-608c09739bab.herokuapp.com/)** ([vteams.com][25])](https://django-sandwiches-608c09739bab.herokuapp.com/)
-
+[**[https://django-sandwiches-608c09739bab.herokuapp.com/](https://django-sandwiches-608c09739bab.herokuapp.com/)** 
 1. **Provision a Heroku app**
 
    ```bash
